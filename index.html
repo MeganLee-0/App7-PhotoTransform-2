@@ -161,29 +161,6 @@
      	ctx2.fillStyle = "black";
         ctx2.fillText("Altered image will go here", 10, 20);
       </script>
-	      
-		/* fileInput.addEventListener("change", () => { 
-			const file = fileInput.files[0];
-			const reader = new FileReader();
-			reader.readAsDataURL(file);
-			reader.onload = () => {
-				const image = new Image();
-				image.src = reader.result;
-				image.onload = () => {
-					canvas.width = image.width;
-					canvas.height = image.height;
-					ctx.drawImage(image, 0, 0);
-					const imageData = ctx.getImageData(0, 0, 600, 500);
-					const data = imageData.data;
-					for(let i = 0; i < data.length; i += 4) {
-						// Set red and green to zero to remove red and green color
-						data[i] = 0;
-						data[i + 1] = 0;
-					}
-					ctx.putImageData(imageData, 0, 0);
-				}
-			}
-		}); */
 
      
     </div><!-- /content -->
