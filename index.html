@@ -25,10 +25,9 @@
   http://stackoverflow.com/questions/11929099/html5-canvas-drawimage-ratio-bug-ios
   
   Brief Description of Goal of Code: 
- make a mobile app that will use the phone camera to take a picture and load that picture onto a canvas later, then undergo a photo analysis
+ make an app that will use the phone camera to take a picture and load that picture onto a canvas later, then undergo a photo analysis that only shows the blue intensities of the picture
  
-  Known Issues:
-  blah, blah, blah, blah
+
 -->
 
  <head>
@@ -102,16 +101,16 @@
           /*  ++++++++++++++++++++++++++++++++++++++++++++++++++++++ */
 
           /* PUT ANY CHANGES TO THE JAVASCRIPT HERE  */
-	var canvas2 = document.getElementById('dataCanvas');
-	var ctx2 = canvas2.getContext("2d");
-        var dataImg = context.getImageData(0,0,600,500);
-	var data = dataImg.data;
-	for(var i = 0, n = data.length; i < n; i += 4) {
+	var canvas2 = document.getElementById('dataCanvas'); /* defines variable canvas2, which is related to the dataCanvas, not the myCanvas like "canvas" is */
+	var ctx2 = canvas2.getContext("2d"); /* defines the context/ctx2 variable as canvas2.getContext, not to be confused with "context" and "canvas" */
+        var dataImg = context.getImageData(0,0,600,500); /* defines dataImg (the img in the second dataCanvas) by calling the Image from the myCanvas, gives it set dimensions */
+	var data = dataImg.data; /* defines variable data as the dataImg's (img in the second dataCanvas) data. Will need to find, run, and use this data in order to take away some colors of each pixel */
+	for(var i = 0, n = data.length; i < n; i += 4) { /* setting up the 'for' loop function that runs through each pixel with the same actions in order to examine the colors of each pixel. sets i to 0 to inititialize the loop, defines n as the length of the data variable, sets the conditionof i<n (as long as i is less than n, the data length, the loop will continue)*/
 		// Set red and green to zero to remove red and green color
-		data[i] = 0;
-		data[i + 1] = 0;
+		data[i] = 0; /* set data[1] to zero, which will remove the red pigments of each pixel, setting red intensities to 0 */ 
+		data[i + 1] = 0; /* sets data[i+1] to zero, which removes the green pigments of each pizel */
 		}
-	ctx2.putImageData(dataImg, 0, 0);
+	ctx2.putImageData(dataImg, 0, 0); /* this line utilizes the putImageData function, which puts the pixel data transformations on the canvases. */
           
         /* */ 
           
@@ -144,23 +143,23 @@
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script> /* This script initiates the cavas and puts the text on the canvas "myCanvas" */
-        var canvas = document.getElementById('myCanvas');
-        var context = canvas.getContext("2d");
-        context.font = '20pt Calibri';
-        context.fillStyle = "black";
-        context.fillText("Original image will go here", 10, 20);
-      </script>
+      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> /* creates the formats the first myCanvas */
+      <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
+        var canvas = document.getElementById('myCanvas'); /* declares variable canvas and assigns it to the myCanvas */
+        var context = canvas.getContext("2d"); /* declares variable called context and assigns it the 2D rendering context of the canvas element (which is assigned to the myCanvas */
+        context.font = '20pt Calibri'; /* sets up format and style of text in myCanvas */
+        context.fillStyle = "black"; /* sets up format and style of text in myCanvas */
+        context.fillText("Original image will go here", 10, 20); /* codes for text in myCanvas and its dimensions */
+      </script> /* closes javascript for the myCanvas */
      
-      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas>
-      <script>
-	var canvas2 = document.getElementById('dataCanvas');
-	var ctx2 = canvas2.getContext("2d");
-	ctx2.font = '20pt Calibri';
-     	ctx2.fillStyle = "black";
-        ctx2.fillText("Altered image will go here", 10, 20);
-      </script>
+      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> /* creates and formats second canvas with id of dataCanvas */
+      <script> /* script initiates dataCanvas and puts text in it */
+	var canvas2 = document.getElementById('dataCanvas'); /* declares variable canvas2 (not to be confused with "canvas" and assigns it to dataCanvas */
+	var ctx2 = canvas2.getContext("2d");/* declares variable called ctx2 (to differentiate it from variable context) and assigns it the 2D rendering context of the canvas2 element (which is assigned to the dataCanvas */
+	ctx2.font = '20pt Calibri'; /* sets up format and style of text in dataCanvas */
+     	ctx2.fillStyle = "black"; /* sets up format and style of text in dataCanvas */
+        ctx2.fillText("Altered image will go here", 10, 20); /* codes for text in myCanvas and its measurements */
+      </script> /*closes javascript for dataCanvas */
 
      
     </div><!-- /content -->
