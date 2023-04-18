@@ -143,23 +143,23 @@
       </div>
       <div id="messageDisplayArea"></div>
       
-      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> /* creates the formats the first myCanvas */
+      <canvas id="myCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> <!--  creates the formats the first myCanvas -->
       <script> /* This script initiates the canvas and puts the text on the canvas "myCanvas" */
         var canvas = document.getElementById('myCanvas'); /* declares variable canvas and assigns it to the myCanvas */
         var context = canvas.getContext("2d"); /* declares variable called context and assigns it the 2D rendering context of the canvas element (which is assigned to the myCanvas */
         context.font = '20pt Calibri'; /* sets up format and style of text in myCanvas */
         context.fillStyle = "black"; /* sets up format and style of text in myCanvas */
         context.fillText("Original image will go here", 10, 20); /* codes for text in myCanvas and its dimensions */
-      </script> /* closes javascript for the myCanvas */
+      </script> <!--  closes javascript for the myCanvas -->
      
-      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> /* creates and formats second canvas with id of dataCanvas */
+      <canvas id="dataCanvas" width=600 height=500 style="border:1px solid #d3d3d3;"></canvas> <!--  creates and formats second canvas with id of dataCanvas -->
       <script> /* script initiates dataCanvas and puts text in it */
 	var canvas2 = document.getElementById('dataCanvas'); /* declares variable canvas2 (not to be confused with "canvas" and assigns it to dataCanvas */
 	var ctx2 = canvas2.getContext("2d");/* declares variable called ctx2 (to differentiate it from variable context) and assigns it the 2D rendering context of the canvas2 element (which is assigned to the dataCanvas */
 	ctx2.font = '20pt Calibri'; /* sets up format and style of text in dataCanvas */
      	ctx2.fillStyle = "black"; /* sets up format and style of text in dataCanvas */
         ctx2.fillText("Altered image will go here", 10, 20); /* codes for text in myCanvas and its measurements */
-      </script> /*closes javascript for dataCanvas */
+      </script> <!-- closes javascript for dataCanvas -->
 
      
     </div><!-- /content -->
